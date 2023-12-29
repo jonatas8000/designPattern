@@ -1,12 +1,7 @@
 package br.com.designPattern;
 
-
-
-import br.com.designPattern.factoryMethod.Categoria;
-import br.com.designPattern.factoryMethod.Cor;
-import br.com.designPattern.factoryMethod.TipoVeiculo;
-import br.com.designPattern.factoryMethod.Veiculo;
-import br.com.designPattern.factoryMethod.VeiculoFactory;
+import br.com.designPattern.Singleton.GeradorNumeroSerial;
+import br.com.designPattern.Singleton.GeradorNumeroSerialEnum;
 
 /**
  * Hello world!
@@ -51,11 +46,42 @@ public class App
        Manual carroManual = manualBuilder.getResult();
        System.out.println("\nCarro manual built:\n" + carroManual.toString()); */
     	
-       Veiculo hatch = VeiculoFactory.fazer(Categoria.CARRO, TipoVeiculo.HATCH,Cor.VERMELHO);
+    /*   Veiculo hatch = VeiculoFactory.fazer(Categoria.CARRO, TipoVeiculo.HATCH,Cor.VERMELHO);
        Veiculo microOnibus = VeiculoFactory.fazer(Categoria.VAN, TipoVeiculo.MICRO_ONIBUS,Cor.PRETO);
        
        System.out.println(hatch.toString());
-       System.out.println(microOnibus.toString());
+       System.out.println(microOnibus.toString());*/
+    	
+    /*   VeiculoManager veiculoManager = new VeiculoManager();
+    	
+       Veiculo hatch = veiculoManager.criarHatch();	
+       Veiculo furgao = veiculoManager.criarFurgao();
        
+       System.out.println(hatch.toString());
+       System.out.println(furgao.toString());
+       
+       VeiculoManagerLazy veiculoManagerLazy = new VeiculoManagerLazy();
+       
+       Veiculo esportivo = veiculoManagerLazy.criarEsportivo();
+       Veiculo microOnibus = veiculoManagerLazy.criarMicroOnibus();
+       
+       
+       System.out.println(esportivo.toString());
+       System.out.println(microOnibus.toString());*/
+       
+       System.out.println("Uso tradicional singleton");
+       GeradorNumeroSerial gerador = GeradorNumeroSerial.getInstance();
+       
+       System.out.println("próximo serial: "+gerador.getProximoSerial());
+       System.out.println("próximo serial: "+gerador.getProximoSerial());
+       System.out.println("próximo serial: "+gerador.getProximoSerial());
+       
+       
+       System.out.println("Uso enum singleton");
+       System.out.println("próximo veiculo: "+ GeradorNumeroSerialEnum.VEICULO.getProximoSerial());
+       System.out.println("próximo veiculo: "+ GeradorNumeroSerialEnum.VEICULO.getProximoSerial());
+       System.out.println("próximo motor: "+ GeradorNumeroSerialEnum.MOTOR.getProximoSerial());
+       System.out.println("próximo veiculo: "+ GeradorNumeroSerialEnum.VEICULO.getProximoSerial());
+       System.out.println("próximo motor: "+ GeradorNumeroSerialEnum.MOTOR.getProximoSerial());
     }
 }
